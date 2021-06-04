@@ -1,0 +1,31 @@
+version: "3.4"
+services:
+    postgres:
+        container_name: postgres
+        image: postgres:13.3-alpine
+        restart: always
+        ports: 
+            - "5432:5432"
+        environment: 
+            POSTGRES_USER: "developer"
+            POSTGRES_PASSWORD: "supersecretpassword"
+        volumes:
+            - postgres-data:/var/lib/postgresql/data
+    adminer:
+        container_name: adminer
+        image: adminer:4.8.1-standalone
+        restart: always
+        ports:
+            - "8090:8080"
+        depends_on: 
+            - postgres
+    redis:
+        container_name: redis
+        image: redis:6.2.4-alpine
+        restart: always
+        ports:
+            - "6379:6379"
+
+volumes:
+    postgres-data:
+        name: postgres-data
