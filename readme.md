@@ -35,3 +35,11 @@ $ docker exec -it postgres sh
 / # psql -U developer -d testdb
 ```
 - Link Command PSQL [Link](https://www.postgresqltutorial.com/psql-commands/)
+
+
+##  Adminer
+Untuk Management Database Postgres
+- Akses melalu browser
+```console
+localhost:8090
+````
