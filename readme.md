@@ -9,7 +9,7 @@ Docker version 19.03.1, build 74b1e89e8a
 ```console
 $ git clone https://github.com/gymie/dicoding-backend-services.git namaproject
 ```
-4. Jalan docker-compose up -d
+4. Jalankan docker-compose up -d
 ```console
 $ docker-compose up -d
 Creating network "namaproject_default" with the default driver
@@ -17,10 +17,21 @@ Creating postgres ... done
 Creating redis    ... done
 Creating adminer  ... done
 ```
+5. Untuk Menghentikan Container
+```
+$ docker-compose down
+```
+6. Untuk Menjalankan Container Tertentu cth hanya mau menjalankan container postgres saja
+```
+$ docker-compose up -d postgres
+```
 
 ## Postgres
-- USER : developer
-- PASSWORD : supersecretpassword
+
+```
+USER : developer
+PASSWORD : supersecretpassword
+```
 
 -  Akses CLI Postgres
 ```console
