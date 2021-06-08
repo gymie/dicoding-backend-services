@@ -1,4 +1,4 @@
-version: "3.4"
+version: "3.5"
 services:
     postgres:
         container_name: postgres
@@ -11,6 +11,8 @@ services:
             POSTGRES_PASSWORD: "supersecretpassword"
         volumes:
             - postgres-data:/var/lib/postgresql/data
+        networks: 
+            - backend
     adminer:
         container_name: adminer
         image: adminer:4.8.1-standalone
@@ -19,13 +21,30 @@ services:
             - "8090:8080"
         depends_on: 
             - postgres
+        networks: 
+            - backend
     redis:
         container_name: redis
         image: redis:6.2.4-alpine
         restart: always
         ports:
             - "6379:6379"
-
+        networks: 
+            - backend
+    rabbitmq:
+        container_name: rabbitmq
+        image: rabbitmq:3-management
+        restart: always
+        ports:
+            - "5672:5672"
+            - "15672:15672"
+        networks: 
+            - backend
+            
 volumes:
     postgres-data:
         name: postgres-data
+
+networks:
+    backend:
+        name: backend-network

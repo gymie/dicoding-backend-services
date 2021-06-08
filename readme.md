@@ -54,3 +54,11 @@ Untuk Management Database Postgres
 ```console
 localhost:8090
 ````
+
+## RabbitMQ
+Untuk Management Queue RabbitMQ
+
+- Akses melalu browser
+```console
+localhost:5672
+````
